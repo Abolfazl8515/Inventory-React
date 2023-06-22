@@ -1,7 +1,8 @@
 import "./App.css";
+import Parent from "./components/Parent/Parent";
 
 const App = () => {
-  return <div className="App"></div>;
+  return <Parent />;
 };
 
 export default App;

@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        yekan:"yekan"
+      },
+      spacing:{
+        600:"600px",
+        400:"400px"
+      }
+    },
   },
   plugins: [],
 }
