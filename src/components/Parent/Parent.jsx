@@ -12,6 +12,7 @@ const Parent = () => {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("Products"))
   );
+  const [searchProducts, setSearchProducts] = useState([...products]);
   useEffect(() => {
     localStorage.setItem("Products", JSON.stringify(products));
   }, [products]);
@@ -23,8 +24,11 @@ const Parent = () => {
       <NavBar numOfProducts={products.length} />
       <section className="w-11/12 h-auto flex justify-between items-start">
         <div className="w-1/2 flex flex-col">
-          <Filters />
-          <ProductList products={products} setProducts={setProducts} />
+          <Filters products={products} setSearchProducts={setSearchProducts} />
+          <ProductList
+            searchProducts={searchProducts}
+            setProducts={setProducts}
+          />
         </div>
         <div className="w-1/2 flex flex-col">
           <CategoryForm categories={categories} setCategories={setCategories} />

@@ -1,4 +1,4 @@
-const ProductList = ({ setProducts, products }) => {
+const ProductList = ({ setProducts, searchProducts }) => {
   const deleteHandler = (id) => {
     const allProducts = [...products];
     const filtredProducts = allProducts.filter((p) => p.id !== id);
@@ -9,7 +9,7 @@ const ProductList = ({ setProducts, products }) => {
     <div className="w-full flex flex-col items-start mt-5">
       <h2 className="font-yekan font-bold text-white text-2xl">لیست محصولات</h2>
       <div className="w-11/12 h-auto flex flex-col items-center">
-        {products.map((p) => (
+        {searchProducts.map((p) => (
           <Product
             key={p.id}
             title={p.title}
