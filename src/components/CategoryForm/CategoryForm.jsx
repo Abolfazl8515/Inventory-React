@@ -22,6 +22,9 @@ const CategoryForm = ({ categories, setCategories }) => {
     };
     allCategories.push(newCategory);
     setCategories(allCategories);
+    setShowForm(false);
+    formValues.title = "";
+    formValues.desc = "";
   };
 
   if (showForm) {
