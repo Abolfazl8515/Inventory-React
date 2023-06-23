@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const Filters = ({ products, setSearchProducts }) => {
   const searchHandler = (e) => {
     const allProducts = [...products];
@@ -7,6 +5,18 @@ const Filters = ({ products, setSearchProducts }) => {
       p.title.includes(e.target.value)
     );
     setSearchProducts(filtredProducts);
+  };
+
+  const sortHandler = (e) => {
+    const allProducts = [...products];
+    const sortedProducts = allProducts.sort((a, b) => {
+      if (e.target.value === "newest") {
+        return new Date(a.createdAt) > new Date(b.createdAt) ? 1 : -1;
+      } else if (e.target.value === "oldest") {
+        return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
+      }
+    });
+    setSearchProducts(sortedProducts);
   };
 
   return (
@@ -32,11 +42,12 @@ const Filters = ({ products, setSearchProducts }) => {
             مرتب سازی بر اساس:
           </label>
           <select
+            onChange={sortHandler}
             id="sort"
             className="w-40 h-8 mt-4 text-white font-yekan border border-solid border-white focus:outline-none bg-gray-900 rounded-md"
           >
-            <option value="newest">جدیدترین</option>
             <option value="oldest">قدیمی ترین</option>
+            <option value="newest">جدیدترین</option>
           </select>
         </div>
       </form>

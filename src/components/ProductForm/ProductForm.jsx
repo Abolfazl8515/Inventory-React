@@ -1,6 +1,11 @@
 import { useRef, useState } from "react";
 
-const ProductForm = ({ products, setProducts, categories }) => {
+const ProductForm = ({
+  products,
+  setProducts,
+  categories,
+  setSearchProducts,
+}) => {
   const selectRef = useRef();
   const [formValues, setFormValues] = useState({
     productTitle: "",
@@ -31,6 +36,7 @@ const ProductForm = ({ products, setProducts, categories }) => {
     };
     allProducts.push(newProduct);
     setProducts(allProducts);
+    setSearchProducts(allProducts);
     formValues.productTitle = "";
     selectRef.current.value = "default";
     formValues.category = "default";

@@ -26,8 +26,10 @@ const Parent = () => {
         <div className="w-1/2 flex flex-col">
           <Filters products={products} setSearchProducts={setSearchProducts} />
           <ProductList
+          setSearchProducts={setSearchProducts}
             searchProducts={searchProducts}
             setProducts={setProducts}
+            products={products}
           />
         </div>
         <div className="w-1/2 flex flex-col">
@@ -35,6 +37,7 @@ const Parent = () => {
           <ProductForm
             categories={categories}
             setProducts={setProducts}
+            setSearchProducts={setSearchProducts}
             products={products}
           />
         </div>

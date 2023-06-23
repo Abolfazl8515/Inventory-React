@@ -1,8 +1,14 @@
-const ProductList = ({ setProducts, searchProducts }) => {
+const ProductList = ({
+  products,
+  setProducts,
+  searchProducts,
+  setSearchProducts,
+}) => {
   const deleteHandler = (id) => {
     const allProducts = [...products];
     const filtredProducts = allProducts.filter((p) => p.id !== id);
     setProducts(filtredProducts);
+    setSearchProducts(filtredProducts);
   };
 
   return (
