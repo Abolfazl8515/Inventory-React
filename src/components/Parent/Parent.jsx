@@ -3,11 +3,21 @@ import ProductForm from "../ProductForm/ProductForm";
 import ProductList from "../ProductList/ProductList";
 import CategoryForm from "../CategoryForm/CategoryForm";
 import Filters from "../Filters/Filters";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Parent = () => {
-    const [categories, setCategories] = useState([]);
-    const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState(
+    JSON.parse(localStorage.getItem("Products"))
+  );
+  const [products, setProducts] = useState(
+    JSON.parse(localStorage.getItem("Categories"))
+  );
+  useEffect(() => {
+    localStorage.setItem("Products", JSON.stringify(products));
+  }, [products]);
+  useEffect(() => {
+    localStorage.setItem("Categories", JSON.stringify(categories));
+  }, [categories]);
   return (
     <main className="App">
       <NavBar numOfProducts={products.length} />
