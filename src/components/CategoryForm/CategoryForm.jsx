@@ -1,7 +1,29 @@
 import { useState } from "react";
 
-const CategoryForm = () => {
+const CategoryForm = ({ categories, setCategories }) => {
   const [showForm, setShowForm] = useState(false);
+  const [formValues, setFormValues] = useState({
+    title: "",
+    desc: "",
+  });
+
+  const changeHandler = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const addCategoryHandler = (e) => {
+    e.preventDefault();
+    if (formValues.title.trim() === "") return;
+    const allCategories = [...categories];
+    const newCategory = {
+      id: Date.now(),
+      title: formValues.title,
+      desc: formValues.desc,
+    };
+    allCategories.push(newCategory);
+    setCategories(allCategories);
+  };
+
   if (showForm) {
     return (
       <div className="w-600 h-400 p-5 flex justify-start flex-col items-center bg-slate-600 mt-10 rounded-md">
@@ -9,7 +31,10 @@ const CategoryForm = () => {
           اضافه کردن دسته بندی جدید
         </h2>
         <div className="w-full mt-5">
-          <form className="w-full flex flex-col items-center">
+          <form
+            className="w-full flex flex-col items-center"
+            onSubmit={addCategoryHandler}
+          >
             <label
               htmlFor="title"
               className="font-yekan text-white w-11/12 text-right"
@@ -19,6 +44,9 @@ const CategoryForm = () => {
             <input
               id="title"
               type="text"
+              value={formValues.title}
+              name="title"
+              onChange={changeHandler}
               className="w-11/12 h-8 p-2 mt-2 text-white font-yekan border border-solid border-white focus:outline-none bg-transparent rounded-md"
             />
             <label
@@ -31,6 +59,9 @@ const CategoryForm = () => {
               id="desc"
               cols="67"
               rows="15"
+              value={formValues.desc}
+              name="desc"
+              onChange={changeHandler}
               className="bg-transparent focus:outline-none p-2 text-white border border-solid border-white rounded-md max-w-lg max-h-40 mt-2"
             ></textarea>
             <div className="w-11/12 mt-5 flex justify-between">

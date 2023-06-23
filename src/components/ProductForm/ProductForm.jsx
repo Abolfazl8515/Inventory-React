@@ -1,4 +1,4 @@
-const ProductForm = () => {
+const ProductForm = ({ categories }) => {
   return (
     <div className="w-600 h-80 p-5 flex justify-start flex-col items-center bg-slate-600 mt-10 rounded-md">
       <h2 className="font-yekan font-bold text-white">اضافه کردن محصول جدید</h2>
@@ -30,6 +30,13 @@ const ProductForm = () => {
             <option value="default" className="bg-slate-500">
               انتخاب دسته بندی
             </option>
+            {categories.map((c) => {
+              return (
+                <option value={c.title} className="bg-slate-500" key={c.id}>
+                  {c.title}
+                </option>
+              );
+            })}
           </select>
           <div className="w-11/12 mt-5 flex">
             <button

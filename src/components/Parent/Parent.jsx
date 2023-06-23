@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 
 const Parent = () => {
   const [categories, setCategories] = useState(
-    JSON.parse(localStorage.getItem("Products"))
+    JSON.parse(localStorage.getItem("Categories"))
   );
   const [products, setProducts] = useState(
-    JSON.parse(localStorage.getItem("Categories"))
+    JSON.parse(localStorage.getItem("Products"))
   );
   useEffect(() => {
     localStorage.setItem("Products", JSON.stringify(products));
@@ -27,8 +27,8 @@ const Parent = () => {
           <ProductList />
         </div>
         <div className="w-1/2 flex flex-col">
-          <CategoryForm />
-          <ProductForm />
+          <CategoryForm categories={categories} setCategories={setCategories} />
+          <ProductForm categories={categories} />
         </div>
       </section>
     </main>
