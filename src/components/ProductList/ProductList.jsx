@@ -1,4 +1,10 @@
-const ProductList = ({ products }) => {
+const ProductList = ({ setProducts, products }) => {
+  const deleteHandler = (id) => {
+    const allProducts = [...products];
+    const filtredProducts = allProducts.filter((p) => p.id !== id);
+    setProducts(filtredProducts);
+  };
+
   return (
     <div className="w-full flex flex-col items-start mt-5">
       <h2 className="font-yekan font-bold text-white text-2xl">لیست محصولات</h2>
@@ -10,6 +16,7 @@ const ProductList = ({ products }) => {
             date={p.createdAt}
             category={p.category}
             quantity={p.quantity}
+            onDelete={() => deleteHandler(p.id)}
           />
         ))}
       </div>
@@ -19,7 +26,7 @@ const ProductList = ({ products }) => {
 
 export default ProductList;
 
-const Product = ({ title, date, category, quantity }) => {
+const Product = ({ title, date, category, quantity, onDelete }) => {
   return (
     <div className="w-full h-10 flex justify-between items-center mt-3">
       <h4 className="w-1/2 font-yekan text-sm text-white">{title}</h4>
@@ -31,7 +38,7 @@ const Product = ({ title, date, category, quantity }) => {
         <p className="w-7 h-7 flex justify-center items-center border border-solid border-white bg-slate-500 rounded-full text-white">
           {quantity}
         </p>
-        <button type="button">
+        <button type="button" onClick={onDelete}>
           <img src="src/assets/delete.svg" alt="delete icon" />
         </button>
       </div>

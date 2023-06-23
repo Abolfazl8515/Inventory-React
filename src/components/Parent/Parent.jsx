@@ -24,7 +24,7 @@ const Parent = () => {
       <section className="w-11/12 h-auto flex justify-between items-start">
         <div className="w-1/2 flex flex-col">
           <Filters />
-          <ProductList products={products} />
+          <ProductList products={products} setProducts={setProducts} />
         </div>
         <div className="w-1/2 flex flex-col">
           <CategoryForm categories={categories} setCategories={setCategories} />
