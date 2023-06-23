@@ -6,15 +6,17 @@ const CategoryForm = () => {
       </h2>
       <div className="w-full mt-5">
         <form className="w-full flex flex-col items-center">
-          <p className="font-yekan text-white w-11/12 text-right">عنوان</p>
+          <label htmlFor="title" className="font-yekan text-white w-11/12 text-right">عنوان</label>
           <input
+          id="title"
             type="text"
             className="w-11/12 h-8 p-2 mt-2 text-white font-yekan border border-solid border-white focus:outline-none bg-transparent rounded-md"
           />
-          <p className="font-yekan text-white w-11/12 text-right mt-2">
+          <label htmlFor="desc" className="font-yekan text-white w-11/12 text-right mt-2">
             توضیحات
-          </p>
+          </label>
           <textarea
+          id="desc"
             cols="67"
             rows="15"
             className="bg-transparent focus:outline-none p-2 text-white border border-solid border-white rounded-md max-w-lg max-h-40 mt-2"

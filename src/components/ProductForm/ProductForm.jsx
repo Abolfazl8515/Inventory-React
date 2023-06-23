@@ -4,13 +4,25 @@ const ProductForm = () => {
       <h2 className="font-yekan font-bold text-white">اضافه کردن محصول جدید</h2>
       <div className="w-full mt-5">
         <form className="w-full flex flex-col items-center">
-          <p className="font-yekan text-white w-11/12 text-right">عنوان</p>
+          <label
+            htmlFor="titleProduct"
+            className="font-yekan text-white w-11/12 text-right"
+          >
+            عنوان
+          </label>
           <input
+            id="titleProduct"
             type="text"
             className="w-11/12 h-8 p-2 mt-2 text-white font-yekan border border-solid border-white focus:outline-none bg-transparent rounded-md"
           />
-          <p className="font-yekan text-white w-11/12 text-right mt-2">تعداد</p>
+          <label
+            htmlFor="quantity"
+            className="font-yekan text-white w-11/12 text-right mt-2"
+          >
+            تعداد
+          </label>
           <input
+            id="quantity"
             type="number"
             className="w-11/12 h-8 p-2 mt-2 text-white font-yekan border border-solid border-white focus:outline-none bg-transparent rounded-md"
           />
