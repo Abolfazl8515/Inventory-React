@@ -23,7 +23,7 @@ const Parent = () => {
     <main className="App">
       <NavBar numOfProducts={products.length} />
       <section className="xl:w-11/12 lg:w-5/6 w-full h-auto flex justify-between lg:flex-row flex-col-reverse lg:items-start items-center mx-auto">
-        <div className="xl:w-1/2 lg:w-3/5 w-full flex flex-col items-center">
+        <div className="xl:w-1/2 lg:w-3/5 w-full flex flex-col lg:items-start items-center">
           <Filters products={products} setSearchProducts={setSearchProducts} />
           <ProductList
           setSearchProducts={setSearchProducts}
