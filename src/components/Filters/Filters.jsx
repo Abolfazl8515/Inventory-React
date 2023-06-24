@@ -20,7 +20,7 @@ const Filters = ({ products, setSearchProducts }) => {
   };
 
   return (
-    <div className="w-3/4 flex flex-col items-start mt-5">
+    <div className="lg:w-3/4 w-full flex flex-col lg:items-start items-center mt-5">
       <h2 className="text-white font-yekan font-bold text-2xl">فیلتر ها</h2>
       <form className="w-full flex flex-col">
         <div className="w-full h-10 flex items-center justify-around">

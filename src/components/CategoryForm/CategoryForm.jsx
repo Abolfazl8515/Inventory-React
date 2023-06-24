@@ -29,7 +29,7 @@ const CategoryForm = ({ categories, setCategories }) => {
 
   if (showForm) {
     return (
-      <div className="w-600 h-400 p-5 flex justify-start flex-col items-center bg-slate-600 mt-10 rounded-md">
+      <div className="xl:w-600 sm:w-400 w-80 h-80 p-5 flex justify-start flex-col items-center bg-slate-600 mt-10 rounded-md">
         <h2 className="font-yekan font-bold text-white">
           اضافه کردن دسته بندی جدید
         </h2>
@@ -60,24 +60,23 @@ const CategoryForm = ({ categories, setCategories }) => {
             </label>
             <textarea
               id="desc"
-              cols="67"
-              rows="15"
+              rows="2"
               value={formValues.desc}
               name="desc"
               onChange={changeHandler}
-              className="bg-transparent focus:outline-none p-2 text-white border border-solid border-white rounded-md max-w-lg max-h-40 mt-2"
+              className="w-11/12 bg-transparent focus:outline-none p-2 text-white border border-solid border-white rounded-md max-w-lg max-h-40 mt-2"
             ></textarea>
             <div className="w-11/12 mt-5 flex justify-between">
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="w-52 h-7 flex justify-center items-center bg-transparent border border-solid border-white text-white rounded-md font-yekan"
+                className="lg:w-52 w-28 h-7 flex justify-center items-center bg-transparent border border-solid border-white text-white rounded-md font-yekan"
               >
                 صرف نظر کردن
               </button>
               <button
                 type="submit"
-                className="w-52 h-7 flex justify-center items-center bg-slate-500 border-none text-white rounded-md font-yekan"
+                className="lg:w-52 w-28 h-7 flex justify-center items-center bg-slate-500 border-none text-white rounded-md font-yekan"
               >
                 اضافه کردن
               </button>
@@ -89,7 +88,7 @@ const CategoryForm = ({ categories, setCategories }) => {
   } else {
     return (
       <h2
-        className="font-yekan font-bold text-2xl text-white my-3 cursor-pointer"
+        className="w-full text-center font-yekan font-bold text-2xl text-white my-3 cursor-pointer"
         onClick={() => setShowForm(true)}
       >
         اضافه کردن دسته بندی جدید؟

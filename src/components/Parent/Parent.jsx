@@ -22,8 +22,8 @@ const Parent = () => {
   return (
     <main className="App">
       <NavBar numOfProducts={products.length} />
-      <section className="w-11/12 h-auto flex justify-between items-start">
-        <div className="w-1/2 flex flex-col">
+      <section className="xl:w-11/12 lg:w-5/6 w-full h-auto flex justify-between lg:flex-row flex-col-reverse lg:items-start items-center mx-auto">
+        <div className="xl:w-1/2 lg:w-3/5 w-full flex flex-col items-center">
           <Filters products={products} setSearchProducts={setSearchProducts} />
           <ProductList
           setSearchProducts={setSearchProducts}
@@ -32,7 +32,7 @@ const Parent = () => {
             products={products}
           />
         </div>
-        <div className="w-1/2 flex flex-col">
+        <div className="xl:w-1/2 lg:w-1/3 w-full flex flex-col items-center">
           <CategoryForm categories={categories} setCategories={setCategories} />
           <ProductForm
             categories={categories}

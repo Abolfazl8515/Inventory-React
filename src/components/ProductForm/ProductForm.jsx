@@ -44,7 +44,7 @@ const ProductForm = ({
   };
 
   return (
-    <div className="w-600 h-80 p-5 flex justify-start flex-col items-center bg-slate-600 mt-10 rounded-md">
+    <div className="xl:w-600 sm:w-400 w-80 h-80 p-5 flex justify-start flex-col items-center bg-slate-600 mt-10 rounded-md">
       <h2 className="font-yekan font-bold text-white">اضافه کردن محصول جدید</h2>
       <div className="w-full mt-5">
         <form
