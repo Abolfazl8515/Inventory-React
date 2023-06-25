@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 
 const Parent = () => {
   const [categories, setCategories] = useState(
-    JSON.parse(localStorage.getItem("Categories"))
+    JSON.parse(localStorage.getItem("Categories")) || []
   );
   const [products, setProducts] = useState(
-    JSON.parse(localStorage.getItem("Products"))
+    JSON.parse(localStorage.getItem("Products")) || []
   );
   const [searchProducts, setSearchProducts] = useState([...products]);
   useEffect(() => {
@@ -26,7 +26,7 @@ const Parent = () => {
         <div className="xl:w-1/2 lg:w-3/5 w-full flex flex-col lg:items-start items-center">
           <Filters products={products} setSearchProducts={setSearchProducts} />
           <ProductList
-          setSearchProducts={setSearchProducts}
+            setSearchProducts={setSearchProducts}
             searchProducts={searchProducts}
             setProducts={setProducts}
             products={products}
